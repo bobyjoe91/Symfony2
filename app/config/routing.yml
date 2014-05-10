@@ -1,0 +1,11 @@
+evry_thing_galerie:
+    resource: "@EvryThingGalerieBundle/Resources/config/routing.yml"
+    prefix:   /galerie
+
+evry_thing_login:
+    resource: "@EvryThingLoginBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+evry_thing_blog:
+    resource: "@EvryThingBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
