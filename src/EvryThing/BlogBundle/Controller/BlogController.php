@@ -174,4 +174,16 @@ class BlogController extends Controller
 
     return $this->render('EvryThingBlogBundle:Blog:accueil.html.twig');
   }
+  
+   public function evryAction()
+  {
+	// On récupère le repository
+	  $repository = $this->getDoctrine()
+						 ->getManager()
+						 ->getRepository('EvryThingBlogBundle:Article');
+
+	  // On récupère tout les champs de l'entité 
+	  $article = $repository->find(16);
+    return $this->render('EvryThingBlogBundle:Blog:evry.html.twig', array('article' => $article));
+  }
 }
