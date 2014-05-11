@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new EvryThing\BlogBundle\EvryThingBlogBundle(),
             new EvryThing\LoginBundle\EvryThingLoginBundle(),
 			///new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
-            new EvryThing\GalerieBundle\EvryThingGalerieBundle()
+            new EvryThing\GalerieBundle\EvryThingGalerieBundle(),
+            new EvryThing\UtilisateurBundle\EvryThingUtilisateurBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
