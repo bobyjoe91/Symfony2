@@ -5,20 +5,18 @@ namespace EvryThing\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Article
+ * Evenement
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="EvryThing\BlogBundle\Entity\ArticleRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="EvryThing\BlogBundle\Entity\EvenementRepository")
  */
-class Article
+class Evenement
 {
 	/**
 	* @ORM\ManyToOne(targetEntity="EvryThing\UtilisateurBundle\Entity\User")
 	* @ORM\JoinColumn(nullable=false)
 	*/
-	private $user;
-	
+	private $auteur;
     /**
      * @var integer
      *
@@ -27,13 +25,6 @@ class Article
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
 
     /**
      * @var string
@@ -45,7 +36,7 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="taille", type="string", length=100)
+     * @ORM\Column(name="taille", type="string", length=255)
      */
     private $taille;
 
@@ -59,46 +50,51 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="contenu", type="text")
+     * @ORM\Column(name="contenu", type="string", length=255)
      */
-	 private $contenu;
-  
-	/**
-	* @ORM\Column(name="publication", type="boolean")
-	*/
-	private $publication;
-    
-	/**
-     * @var integer
+    private $contenu;
+
+    /**
+     * @var string
      *
-     * @ORM\Column(name="nbCommentaire", type="integer")
-     * 
+     * @ORM\Column(name="corp", type="text")
      */
-    private $nbCommentaire;
-	
+    private $corp;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="participe", type="boolean")
+     */
+    private $participe;
+
 	public function __construct()
 	{
-		$this->date = new \Datetime(); // Par défaut, la date de l'article est la date d'aujourd'hui
-		$this->publication=true;
-		$this->nbCommentaire=0;
+		$this->date = new \Datetime();
 	}
 	
 	/**
-     * Get user
+     * Get auteur
      *
-     * @return EvryThing\UtilisateurBundle\Entity\User $user 
+     * @return EvryThing\UtilisateurBundle\Entity\User $auteur 
      */
 	public function getUser(){
-		return $this->user;
+		return $this->auteur;
 	}
-	
 	/**
-	 * Set user
+	 * Set auteur
 	 *
-	 * @param EvryThing\UtilisateurBundle\Entity\User $user
+	 * @param EvryThing\UtilisateurBundle\Entity\User $auteur
 	 */
-	public function setUser($user){
-		$this->user = $user;
+	public function setUser($auteur){
+		$this->auteur = $auteur;
 	}
 	
     /**
@@ -112,33 +108,10 @@ class Article
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Article
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime 
-     */
-    public function getDate()
-    {
-        return $this->date;
-    }
-
-    /**
      * Set titre
      *
      * @param string $titre
-     * @return Article
+     * @return Evenement
      */
     public function setTitre($titre)
     {
@@ -161,7 +134,7 @@ class Article
      * Set taille
      *
      * @param string $taille
-     * @return Article
+     * @return Evenement
      */
     public function setTaille($taille)
     {
@@ -184,7 +157,7 @@ class Article
      * Set image
      *
      * @param string $image
-     * @return Article
+     * @return Evenement
      */
     public function setImage($image)
     {
@@ -206,8 +179,8 @@ class Article
     /**
      * Set contenu
      *
-     * @param text $contenu
-     * @return Article
+     * @param string $contenu
+     * @return Evenement
      */
     public function setContenu($contenu)
     {
@@ -219,7 +192,7 @@ class Article
     /**
      * Get contenu
      *
-     * @return text 
+     * @return string 
      */
     public function getContenu()
     {
@@ -227,57 +200,71 @@ class Article
     }
 
     /**
-     * Set publication
+     * Set corp
      *
-     * @param boolean $publication
-     * @return Article
+     * @param string $corp
+     * @return Evenement
      */
-    public function setPublication($publication)
+    public function setCorp($corp)
     {
-        $this->publication = $publication;
+        $this->corp = $corp;
 
         return $this;
     }
 
     /**
-     * Get publication
+     * Get corp
+     *
+     * @return string 
+     */
+    public function getCorp()
+    {
+        return $this->corp;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Evenement
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set participe
+     *
+     * @param boolean $participe
+     * @return Evenement
+     */
+    public function setParticipe($participe)
+    {
+        $this->participe = $participe;
+
+        return $this;
+    }
+
+    /**
+     * Get participe
      *
      * @return boolean 
      */
-    public function getPublication()
+    public function getParticipe()
     {
-        return $this->publication;
+        return $this->participe;
     }
-	
-	    /**
-     * Set nbCommentaire
-     *
-     * @param integer $nbCommentaire
-     * @return Article
-     */
-    public function setNbCommentaire($nbCommentaire)
-    {
-        $this->nbCommentaire = $nbCommentaire;
-
-        return $this;
-    }
-
-    /**
-     * Get nbCommentaire
-     *
-     * @return integer 
-     */
-    public function getNbCommentaire()
-    {
-        return $this->nbCommentaire;
-    }
-	
-	/**
-	* MàJ automatique de la date lors d'une modification
-	* @ORM\PreUpdate
-	*/
-	public function updateDate()
-	{
-		$this->setDate(new \Datetime());
-	}
 }

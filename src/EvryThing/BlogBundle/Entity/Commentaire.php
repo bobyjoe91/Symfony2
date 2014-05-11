@@ -18,6 +18,16 @@ class Commentaire
 	* @ORM\JoinColumn(nullable=false)
 	*/
 	private $article;
+	/**
+	* @ORM\ManyToOne(targetEntity="EvryThing\BlogBundle\Entity\Evenement")
+	* @ORM\JoinColumn(nullable=false)
+	*/
+	private $evenement;
+	/**
+	* @ORM\ManyToOne(targetEntity="EvryThing\UtilisateurBundle\Entity\User")
+	* @ORM\JoinColumn(nullable=false)
+	*/
+	private $user;
     /**
      * @var integer
      *
@@ -53,7 +63,7 @@ class Commentaire
 		$this->date = new \Datetime();
 	}
 	/**
-     * Get id
+     * Get article
      *
      * @return EvryThing\BlogBundle\Entity\Article $article 
      */
@@ -67,6 +77,38 @@ class Commentaire
 	 */
 	public function setArticle($article){
 		$this->article = $article;
+	}
+		/**
+     * Get evenement
+     *
+     * @return EvryThing\BlogBundle\Entity\Evenement $evenement 
+     */
+	public function getEvenement(){
+		return $this->evenement;
+	}
+	/**
+	 * Set evenement
+	 *
+	 * @param EvryThing\BlogBundle\Entity\Evenement $evenement
+	 */
+	public function setEvenement($evenement){
+		$this->evenement = $evenement;
+	}
+	/**
+     * Get user
+     *
+     * @return EvryThing\UtilisateurBundle\Entity\User $user 
+     */
+	public function getUser(){
+		return $this->user;
+	}
+	/**
+	 * Set user
+	 *
+	 * @param EvryThing\UtilisateurBundle\Entity\User $user
+	 */
+	public function setUser($user){
+		$this->user = $user;
 	}
     /**
      * Get id

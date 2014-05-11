@@ -21,6 +21,7 @@ class AppKernel extends Kernel
 			///new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new EvryThing\GalerieBundle\EvryThingGalerieBundle(),
             new EvryThing\UtilisateurBundle\EvryThingUtilisateurBundle(),
+            new EvryThing\DocumentBundle\EvryThingDocumentBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

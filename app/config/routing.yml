@@ -1,3 +1,7 @@
+evry_thing_document:
+    resource: "@EvryThingDocumentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 evry_thing_utilisateur:
     resource: "@EvryThingUtilisateurBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,6 +1,6 @@
 <?php
 
-namespace EvryThing\BlogBundle\Entity;
+namespace EvryThing\UtilisateurBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="EvryThing\BlogBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="EvryThing\UtilisateurBundle\Entity\UserRepository")
  */
 class User
 {

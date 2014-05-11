@@ -48,17 +48,14 @@ class BlogController extends Controller
     $article->setTitre('actualités');
     $article->setTaille('petitD');
 	$article->setImage('bundles/evrythingblog/images/wei2013.jpg');
-	$article->setAuteur('Bibi');
     $article->setContenu('swaaaaaaaaaaaggggggggggg!!!!!!');
 	
     // Création d'un premier commentaire
     $commentaire1 = new Commentaire();
-    $commentaire1->setAuteur('Bobo');
     $commentaire1->setContenu('On veut les photos !');
 
     // Création d'un deuxième commentaire, par exemple
     $commentaire2 = new Commentaire();
-    $commentaire2->setAuteur('Daminou');
     $commentaire2->setContenu('Les photos arrivent !');
 
     // On lie les commentaires à l'article
@@ -102,7 +99,6 @@ class BlogController extends Controller
 	
 	
 	$commentaire2 = new Commentaire();
-    $commentaire2->setAuteur('Damien');
     $commentaire2->setContenu('Hello Gentleman 3!!!!!');
 
     // On lie les commentaires à l'article
