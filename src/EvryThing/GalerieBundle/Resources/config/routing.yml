@@ -7,3 +7,4 @@ evry_thing_galerie_carrousel:
     defaults: { _controller: EvryThingGalerieBundle:Galerie:carrousel }
     requirements:
         album: "[A-Za-z0-9]+"
+

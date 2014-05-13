@@ -33,3 +33,7 @@ evry_thing_blog_ajouterCommentaire:
 evry_thing_blog_evry:
     pattern: /evry
     defaults: { _controller: EvryThingBlogBundle:Blog:evry }
+
+evry_thing_blog_bde:
+    pattern: /bde
+    defaults: { _controller: EvryThingBlogBundle:Blog:bde }

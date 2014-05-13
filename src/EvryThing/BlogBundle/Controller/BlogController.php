@@ -173,6 +173,11 @@ class BlogController extends Controller
   
    public function evryAction()
   {
+    return $this->render('EvryThingBlogBundle:Blog:evry.html.twig');
+  }
+    
+   public function bdeAction()
+  {
 	// On récupère le repository
 	  $repository = $this->getDoctrine()
 						 ->getManager()
@@ -180,6 +185,6 @@ class BlogController extends Controller
 
 	  // On récupère tout les champs de l'entité 
 	  $article = $repository->find(16);
-    return $this->render('EvryThingBlogBundle:Blog:evry.html.twig', array('article' => $article));
+    return $this->render('EvryThingBlogBundle:Blog:bde.html.twig');
   }
 }
