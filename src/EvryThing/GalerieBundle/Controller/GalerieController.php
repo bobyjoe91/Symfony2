@@ -27,13 +27,14 @@ class GalerieController extends Controller
 		if ($request->getMethod() == 'POST') {
 			$form->bind($request);
 			if ($form->isValid()) {
+				$photo->upload();	
+				echo $photo->getDossier();
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($photo);
 				$em->flush();
 				return $this->redirect($this->generateUrl('evry_thing_accueil'));
 			}
 		}
-	  
         return $this->render('EvryThingGalerieBundle:Galerie:albums.html.twig', array('albums' => $albums, 'form' => $form->createView()));
     }
 	
@@ -52,24 +53,6 @@ class GalerieController extends Controller
 
 	public function uploadAction()
 	{
-	  $photo = new Document;
-	  $form = $this->createForm(new DocumentType, $photo);
 
-	  $request = $this->get('request');
-	  if ($request->getMethod() == 'POST') {
-		$form->bind($request);
-
-		if ($form->isValid()) {
-		  $em = $this->getDoctrine()->getManager();
-		  $em->persist($photo);
-		  $em->flush();
-
-		  return $this->redirect($this->generateUrl('evry_thing_accueil'));
-		}
-	  }
-
-	  return $this->render('EvryThingGalerieBundle:Galerie:carrousel.html.twig', array(
-		'form' => $form->createView(),
-	  ));
 	}
 }

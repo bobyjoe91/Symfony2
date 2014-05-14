@@ -17,7 +17,8 @@ class DocumentType extends AbstractType
         $builder
             ->add('libelle', 'text')
             ->add('description', 'textarea')
-			->add('source', 'file')
+			->add('dossier', 'text')
+			->add('file', 'file')
         ;
     }
     

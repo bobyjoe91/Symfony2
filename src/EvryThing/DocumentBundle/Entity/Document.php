@@ -3,6 +3,7 @@
 namespace EvryThing\DocumentBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Document
@@ -39,6 +40,13 @@ class Document
      * @ORM\Column(name="source", type="string", length=1000)
      */
     private $source;
+	
+	 /**
+     * @var string
+     *
+     * @ORM\Column(name="dossier", type="string", length=1000)
+     */
+    private $dossier;
 
     /**
      * @var string
@@ -53,6 +61,8 @@ class Document
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+	
+	private $file;
 
 
 	public function __construct()
@@ -135,6 +145,29 @@ class Document
     }
 
     /**
+     * Set dossier
+     *
+     * @param string $dossier
+     * @return Document
+     */
+    public function setDossier($dossier)
+    {
+        $this->dossier = $dossier;
+
+        return $this;
+    }
+
+    /**
+     * Get dossier
+     *
+     * @return string 
+     */
+    public function getDossier()
+    {
+        return $this->dossier;
+    }
+	
+    /**
      * Set description
      *
      * @param string $description
@@ -179,4 +212,40 @@ class Document
     {
         return $this->type;
     }
+	
+	public function getFile(){
+		return $this->file;
+	}
+	
+	public function setFile(UploadedFile $file){
+		$this->file = $file;
+	}
+	
+	public function upload()
+	{
+		// Si jamais il n'y a pas de fichier (champ facultatif)
+		if (null === $this->file) {
+		  return;
+		}
+		// On garde le nom original du fichier de l'internaute
+		$name = $this->file->getClientOriginalName();
+
+		// On déplace le fichier envoyé dans le répertoire de notre choix
+		$this->file->move($this->getUploadRootDir(), $name);
+		
+		$this->source = $name;
+		$this->type = "test";
+	}
+
+	public function getUploadDir()
+	{
+		// On retourne le chemin relatif vers l'image pour un navigateur
+		return $this->dossier;
+	}
+
+	protected function getUploadRootDir()
+	{
+		// On retourne le chemin relatif vers l'image pour notre code PHP
+		return __DIR__.'/../../../../web/'.$this->getUploadDir();
+	}
 }

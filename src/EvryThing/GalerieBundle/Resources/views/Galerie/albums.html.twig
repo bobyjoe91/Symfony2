@@ -13,6 +13,9 @@
 		{% else %}
 			<li>Pas (encore !) d'albums photo</li>
 		{% endfor %}
-		{{ form_row(form.source) }}
+			<form method="post" {{ form_enctype(form) }}>
+			{{ form_rest(form) }}
+			<input type="submit" value="Ajouter"/>
+		</form>
 	</div>
 	{%endblock%}

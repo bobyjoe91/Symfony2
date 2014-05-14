@@ -8,3 +8,7 @@ evry_thing_galerie_carrousel:
     requirements:
         album: "[A-Za-z0-9]+"
 
+evry_thing_galerie_upload:
+    pattern:  /upload
+    defaults: { _controller: EvryThingGalerieBundle:Galerie:upload }
+
