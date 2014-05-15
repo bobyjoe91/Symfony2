@@ -37,3 +37,9 @@ evry_thing_blog_evry:
 evry_thing_blog_bde:
     pattern: /bde
     defaults: { _controller: EvryThingBlogBundle:Blog:bde }
+
+evry_thing_blog_contact:
+    pattern: /contact
+    defaults: { _controller: EvryThingBlogBundle:Page:contact }
+    requirements:
+        _method: GET|POST
