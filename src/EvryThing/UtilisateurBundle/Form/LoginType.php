@@ -1,7 +1,7 @@
 <?php
 // src/EvryThing/BlogBundle/Form/LoginType.php
 
-namespace EvryThing\BlogBundle\Form;
+namespace EvryThing\UtilisateurBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
