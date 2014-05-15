@@ -17,7 +17,11 @@ class DocumentType extends AbstractType
         $builder
             ->add('libelle', 'text')
             ->add('description', 'textarea')
-			->add('dossier', 'text')
+			->add('dossier', 'choice', array('choices' => array(1 => "test1", 2 => 'test2', 3 => "test3"),
+				'multiple' => false,
+				'expanded' => false,
+				'empty_value' => '- Choisissez une option -',
+				'empty_data'  => -1))
 			->add('file', 'file')
         ;
     }

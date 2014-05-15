@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 11 Mai 2014 à 14:29
+-- Généré le: Jeu 15 Mai 2014 à 11:11
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.12
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `commentaire` (
   KEY `IDX_E16CE76B7294869C` (`article_id`),
   KEY `IDX_E16CE76BFD02F13` (`evenement_id`),
   KEY `IDX_E16CE76BA76ED395` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `document` (
   `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
+  `dossier` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_211FE820A76ED395` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
@@ -136,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `telephone` int(11) NOT NULL,
   `droit` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `user`
@@ -159,8 +160,8 @@ ALTER TABLE `article`
 -- Contraintes pour la table `commentaire`
 --
 ALTER TABLE `commentaire`
-  ADD CONSTRAINT `FK_E16CE76BA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_E16CE76B7294869C` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
+  ADD CONSTRAINT `FK_E16CE76BA76ED395` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_E16CE76BFD02F13` FOREIGN KEY (`evenement_id`) REFERENCES `evenement` (`id`);
 
 --
