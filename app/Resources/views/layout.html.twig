@@ -30,9 +30,11 @@
     	<div id="centre">
         	{%block principal%}
 			{%endblock%}
-			{%block login%}
-				{{ render(controller("EvryThingLoginBundle:Login:login"))}}
-			{%endblock%}
+			<aside id="secondaire">
+				{%block login%}
+					{{ render(controller("EvryThingLoginBundle:Login:login"))}}
+				{%endblock%}
+			</aside>
         </div>
 		<footer>
 			<p id="partenaire">
