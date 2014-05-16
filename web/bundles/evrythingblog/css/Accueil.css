@@ -5,7 +5,16 @@
 	width: 71%;
 	height:30vw;
 	overflow-y: scroll;
+	float : left;
+	position : relative;
 }
+/*
+#secondaire{
+width:29%;
+float:right;
+position : relative;
+	
+}*/
 #login{
 	position:absolute;
 	top:20px;
