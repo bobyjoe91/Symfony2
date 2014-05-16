@@ -1,5 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
+@media screen{
 #principal{
 	width: 71%;
 	height:30vw;
@@ -23,4 +24,5 @@
 	border-style:solid;
 	border-width:1px;
 	border-color:#CDCDCD;
+}
 }
