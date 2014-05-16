@@ -1,8 +1,8 @@
 {# src/EvryThing/BlogBundle/Resources/views/layout.html.twig #}
 	{%extends "::layout.html.twig"%}
 	{% block stylesheets %}
-		<link rel="stylesheet" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
-		<link rel="stylesheet" href="{{ asset('bundles/evrythingblog/css/Blog.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Accueil.css') }}" type="text/css" media="all" />
+		<link rel="stylesheet" media="screen" href="{{ asset('bundles/evrythingblog/css/Blog.css') }}" type="text/css" media="all" />
 		{{ parent() }}
 	{% endblock %}
 	{%block title%}
@@ -81,6 +81,21 @@
 								ceci est le corps de l'article : ceci est le corps de l'article'
                                 ceci est le corps de l'article : ceci est le corps de l'article'
                                 ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+																ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
+                                ceci est le corps de l'article : ceci est le corps de l'article'
                             </p>
 						</div>
 					</li>
@@ -94,6 +109,8 @@
 		function derouler(idbutton) {
 			ciblecontenu = document.getElementById(idbutton).nextElementSibling.nextElementSibling;
 			ciblecontenu.style.display='block';
+			agrandirbazard = document.getElementById(idbutton).parentNode.parentNode;
+			agrandirbazard.style.height="auto";
 			ciblebuttonmoins = document.getElementById(idbutton).nextElementSibling;
 			ciblebuttonmoins.style.display='block';
 			document.getElementById(idbutton).style.display='none';
@@ -102,6 +119,8 @@
 		function enrouler(idbutton){
 			cachecontenu = document.getElementById(idbutton).nextElementSibling;
 			cachecontenu.style.display='none';
+			reduirbazard = document.getElementById(idbutton).parentNode.parentNode;
+			reduirbazard.style.height="300px";
 			buttonplus = document.getElementById(idbutton).previousElementSibling;
 			document.getElementById(idbutton).style.display='none';
 			buttonplus.style.display='block';
